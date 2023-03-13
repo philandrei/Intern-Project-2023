@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <style>
+            .text-success{
+                color:#6bff75;
+            }
+
+            .text-danger{
+                color:#ff0000;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <ul class="list-group" th:each = "user : ${users}">
+                <div th:if="${user.isActive()}">
+                    <li class="list-group-item text-success" th:text="${user.username}"></li>
+                    <li class="list-group-item text-success" th:text="${user.status}"></li>
+                </div>
+                <div th:unless="${user.isActive()}">
+                    <h1>INACTIVE</h1>
+                    <li class="list-group-item text-danger" th:text="${user.username}"></li>
+                    <li class="list-group-item text-danger" th:text="${user.status}"></li>
+                </div>
+            </ul>
+        </div>
+    </body>
+</html>
